@@ -9,8 +9,10 @@ import poc.gp.ecj.terminals.Rank;
 import poc.io.IO;
 import poc.util.CmdLineParser;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Map;
 
 public class Main {
@@ -91,25 +93,25 @@ public class Main {
         }
         MyStatistics.generateSummaryFile(partitions, executions);
 
-//        Runtime rt = Runtime.getRuntime();
-//        try {
-//            Process pr = rt.exec("python out/results/plot.py");
-//
-//            BufferedReader stdInput = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-//
-//            BufferedReader stdError = new BufferedReader(new InputStreamReader(pr.getErrorStream()));
-//
-//            String s = null;
-//            while ((s = stdInput.readLine()) != null) {
-//                System.out.println(s);
-//            }
-//
-//            while ((s = stdError.readLine()) != null) {
-//                System.out.println(s);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        Runtime rt = Runtime.getRuntime();
+        try {
+            Process pr = rt.exec("python out/results/plot.py");
+
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+
+            BufferedReader stdError = new BufferedReader(new InputStreamReader(pr.getErrorStream()));
+
+            String s = null;
+            while ((s = stdInput.readLine()) != null) {
+                System.out.println(s);
+            }
+
+            while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
