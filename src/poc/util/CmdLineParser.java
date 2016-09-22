@@ -33,13 +33,12 @@ public class CmdLineParser {
         options.addOption(null, "initialMaxHeight", true, "Set the initial population maximum height (Default = 4)");
         options.addOption("sp", "sampling", true, "Set sampling mode:" +
                 "\nn = don't use sampling (default)" +
-                "\nsr = use sampling with replacement");
+                "\nsr = use sampling with replacement" +
+                "\nm3 = Keep the worst individuals of the sample");
         options.addOption("ss", "sampleSize", true, "Number of rankings to use on sampling");
         options.addOption("rsi", "resamplingInterval", true, "Number generation between ech resampling (Default = 10)");
         options.addOption("part", "partitions", true, "Number of partitions to use");
-        options.addOption("ip", "ignorePartition", true, "Ignore partition info logging");
-        options.addOption("igp", "ignoreGeneticPrograming", true, "Ignore genetic programming");
-        options.addOption("si", "staticInfo", false, "Collects results from recomendation and aggregation methods");
+
 
     }
 
@@ -104,12 +103,6 @@ public class CmdLineParser {
                 Parameters.setProperty("resamplingInterval", cmd.getOptionValue("rsi"));
             if (cmd.hasOption("part"))
                 Parameters.setProperty("partitions", cmd.getOptionValue("part"));
-            if (cmd.hasOption("ip"))
-                Parameters.setProperty("ignorePartitionLog", cmd.getOptionValue("ip"));
-            if (cmd.hasOption("igp"))
-                Parameters.setProperty("ignoreGeneticPrograming", cmd.getOptionValue("igp"));
-            if (cmd.hasOption("si"))
-                Parameters.setProperty("staticInfo", "true");
 
 
         } catch (ParseException e) {
