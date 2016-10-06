@@ -45,7 +45,7 @@ public class Fitness {
                 hitCount = 0.0;
             } else {
 //                scores.add(0.0);
-//                System.out.println("user not in validation file");
+//                System.out.println(userId);
             }
 
         }
@@ -54,16 +54,16 @@ public class Fitness {
             acc += d;
         }
 
-        ArrayList<Double> sortedScores = new ArrayList<>();
-        sortedScores.addAll(scores);
-        Collections.sort(sortedScores);
-        double median = 0.0f;
-        if (sortedScores.size() % 2 == 0) {
-            int i = sortedScores.size() / 2;
-            median = (sortedScores.get(i) + sortedScores.get(i - 2)) / 2;
-        } else {
-            median = sortedScores.get(sortedScores.size() / 2);
-        }
+//        ArrayList<Double> sortedScores = new ArrayList<>();
+//        sortedScores.addAll(scores);
+//        Collections.sort(sortedScores);
+//        double median = 0.0f;
+//        if (sortedScores.size() % 2 == 0) {
+//            int i = sortedScores.size() / 2;
+//            median = (sortedScores.get(i) + sortedScores.get(i - 2)) / 2;
+//        } else {
+//            median = sortedScores.get(sortedScores.size() / 2);
+//        }
 
 
         Double[] data = new Double[scores.size()];

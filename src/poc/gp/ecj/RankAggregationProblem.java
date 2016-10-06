@@ -102,7 +102,7 @@ public class RankAggregationProblem extends GPProblem implements SimpleProblemFo
     }
 
 
-    public static UserRatings getUserRatings() {
+    public static synchronized UserRatings getUserRatings() {
         if (ratings == null) {
             ratings = IO.readUserRatings(Parameters.basePath, Parameters.userRatingsFileName);
         }

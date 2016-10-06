@@ -18,7 +18,8 @@ public enum ECJGpParams {
     MUTATION_MAX_DEPTH("gp.koza.mutate.maxdepth"),
     BUILD_MAX_DEPTH("gp.koza.half.max-depth"),
     BUILD_MIN_DEPTH("gp.koza.half.min-depth"),
-    TOURNAMENT_SIZE("select.tournament.size ");
+    TOURNAMENT_SIZE("select.tournament.size"),
+    SPEA2_TOURNAMENT_SIZE("SPEA2tournament.size");
 
     private final String name;
 

@@ -139,7 +139,8 @@ public class IO {
 
 
         BufferedReader br = null;
-
+        Integer lastUser = -1;
+        HashMap<Integer, Integer> lastRatings = null;
         try {
             String sCurrentLine;
 
@@ -163,17 +164,22 @@ public class IO {
                     if (actualUser > 0) {
                         userRatings.put(actualUser, ratings);
                     }
+                    if (userId > 900) {
+                        System.out.printf("");
+                    }
                     actualUser = userId;
                     ratings = new HashMap<>();
-
                 }
                 ratings.put(itemID, rating);
+                lastRatings = ratings;
+                lastUser = userId;
             }
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        userRatings.put(lastUser, lastRatings);
         return new UserRatings(userRatings);
     }
 

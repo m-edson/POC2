@@ -433,7 +433,7 @@ public class MyStatistics extends MultiObjectiveStatistics {
             ArrayList<Ranking> resultRankings = new ArrayList<>();
 
             for (int e = 0; e < executions; e++) {
-                GPIndividual ind = bestIndividuals.get(((p - 1) * (partitions - 1)) + e);
+                GPIndividual ind = bestIndividuals.get(((p - 1) * executions) + e);
                 RankData input = new RankData();
                 ind.trees[0].child.eval(new EvolutionState(), 1, input, new ADFStack(), ind, new RankAggregationProblem());
                 resultRankings.add(input.ranking);
@@ -490,7 +490,7 @@ public class MyStatistics extends MultiObjectiveStatistics {
             ArrayList<Ranking> resultRankings = new ArrayList<>();
 
             for (int e = 0; e < executions; e++) {
-                GPIndividual ind = bestIndividuals.get(((p - 1) * (partitions - 1)) + e);
+                GPIndividual ind = bestIndividuals.get(((p - 1) * executions) + e);
                 RankData input = new RankData();
                 ind.trees[0].child.eval(new EvolutionState(), 1, input, new ADFStack(), ind, new RankAggregationProblem());
                 resultRankings.add(input.ranking);
@@ -560,10 +560,14 @@ public class MyStatistics extends MultiObjectiveStatistics {
 
 
             String[][][] recVal = recVal();
+            System.out.println("RecVal Done...");
             String[][][] aggrVal = aggrVal();
+            System.out.println("AggrVal Done...");
 
             String[][][] recTest = recTest();
+            System.out.println("RecTest Done...");
             String[][][] aggrTest = aggrTest();
+            System.out.println("AggrTest Done...");
 
             genTables(recVal, aggrVal, recTest, aggrTest);
 

@@ -130,6 +130,7 @@ public class Parameters {
 
     public void setTournamentSize(Integer value) {
         setParameter(ECJGpParams.TOURNAMENT_SIZE, value.toString());
+        setParameter(ECJGpParams.SPEA2_TOURNAMENT_SIZE, value.toString());
     }
 
 }
